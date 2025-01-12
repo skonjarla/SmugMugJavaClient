@@ -1,0 +1,99 @@
+# Java client for SmugMug API #
+
+This library provides basic access to the SmugMug API. Given smugmug API credentials, it can be used to retrieve information about albums and images.
+### What is this repository for? ###
+
+* Provides basic access to the SmugMug API v2
+* Performs required Oauth1.0 authentication
+* Can be used to retrieve information about albums and images
+
+### How do I get set up? ###
+
+* Use maven to build the jar. Typically,
+```commandline
+$ mvn clean install
+```
+* Must have Java 9+
+* Must have a SmugMug account and API key and Access token and it's corresponding secret
+
+### How do I use it? ###
+
+* Create an instance of the OAuth1HttpClient class
+
+```java
+        OAuth1Signature.Builder signatureBuilder = new OAuth1Signature.Builder()
+                .consumerKey(SMUGMUG_CONSUMER_KEY)
+                .consumerSecret(SMUGMUG_CONSUMER_SECRET)
+                .accessToken(SMUGMUG_ACCESS_TOKEN)
+                .tokenSecret(SMUGMUG_TOKEN_SECRET);
+
+        OAuth1HttpClient oAuthClient = new OAuth1HttpClient.Builder()
+                .signatureBuilder(signatureBuilder)
+                .build();
+```
+* Pass the OAuth1HttpClient to any of the SmugMug API methods.
+* Get a list of all images for a given album key
+```java
+        List<SMImage> images = Albums.getAllImagesOfAlbum(oAuthClient, ALBUM_KEY);
+```
+* Using Images API
+```java
+        Images.getImageByKey(oAuthClient, IMAGE_KEY);
+        Images.getMetaDataOfImageByKey(oAuthClient, IMAGE_KEY);
+```
+* Updating an image
+* Following code snippet will update an image's caption.
+* Image URI is **mandatory**
+```java
+        SMImage image = Images.getImageByKey(oAuthClient, IMAGE_KEY);
+                image = SMImage.builder()
+                    .uri(image.getUri())
+                    .caption("Caption")
+                    .build();
+                image = Images.updateImage(oAuthClient, image);
+                System.out.println(image.getCaption());
+```
+* Using Nodes API. Following code will print all root nodes
+```java
+        List<SMNode> rootNodes = Nodes.getRootNodes(oAuthClient);
+            rootNodes.forEach(node -> {
+                System.out.println(node.getName() + " | " + node.getNodeID() + " | " +  node.getType());
+            });
+```
+* Get all Nodes for a given Node ID
+```java
+        List<SMNode> childNodes.getNodes(oAuthClient, NODE_ID).forEach(node -> {
+            System.out.println(node.getName() + " | " + node.getNodeID() + " | " + Paths.get(node.getUris().getAlbum().getUri()).getFileName() + " | " +node.getType());
+        });
+```
+* Get album key for a given node ID
+```java
+System.out.println(Nodes.getAlbumKeyByNodeId(oAuthClient, NODE_ID));
+```
+* Using Albums API
+* Get album by key
+```java
+        SMAlbum album = Albums.getAlbumByKey(oAuthClient, ALBUM_KEY);
+        System.out.println(album.getName());
+```
+* Following code snippet will update an album's description
+* Album URI is **mandatory**
+```java
+        SMAlbum smAlbum = Albums.getAlbumByKey(oAuthClient, ALBUM_KEY);
+        smAlbum = SMAlbum.builder()
+                .uri(smAlbum.getUri())
+                .description("Test Album Test")
+                .build();
+        smAlbum = Albums.updateAlbum(oAuthClient, smAlbum);
+        System.out.println(smAlbum.getDescription());
+```
+* Following code snippet will upload an image to an album
+```java
+        SMUploadResponse response = Upload.uploadFileToAlbum(oAuthClient, IMAGE_FILE_PATH, ALBUM_KEY);
+        System.out.println(response.getStat() + " | " + response.getImage().getImageUri());
+```
+### Contribution guidelines ###
+
+* Writing tests
+* Code review
+* Feature requests
