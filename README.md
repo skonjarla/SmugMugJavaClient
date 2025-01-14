@@ -15,7 +15,7 @@ This library provides basic access to the SmugMug API. Given smugmug API credent
 ```commandline
 $ mvn clean install
 ```
-* Must have Java 9+
+* Must have Java 8+
 * Must have a SmugMug account and API key and Access token and it's corresponding secret
 
 ### How do I use it? ###
