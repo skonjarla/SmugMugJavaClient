@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import net.konjarla.smugmug.client.OAuth1HttpClient;
 import net.konjarla.smugmug.client.SmugMugHttpRequestBuilder;
 import net.konjarla.smugmug.client.api.response.SMUploadResponse;
+import net.konjarla.smugmug.model.ImageToUpload;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.hc.client5.http.entity.mime.FileBody;
 import org.apache.hc.core5.http.io.entity.EntityUtils;
@@ -18,6 +19,9 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+/**
+ * Utility class for uploading files to smugmug.
+ */
 public class Upload {
     private static final SmugMugApiConfig API_CONFIG = new SmugMugApiConfig().requestVerb("POST");
     private static final Logger log = LoggerFactory.getLogger(Upload.class);
@@ -53,7 +57,11 @@ public class Upload {
                     .header("Content-MD5", md5Checksum(fileName))
                     .executeRaw(rawResponse -> {
                         String entity = EntityUtils.toString(rawResponse.getEntity(), StandardCharsets.UTF_8);
-                        return mapper.readValue(entity, SMUploadResponse.class);
+                        SMUploadResponse response = mapper.readValue(entity, SMUploadResponse.class);
+                        if (response.getStat().equals("fail")) {
+                            throw new RuntimeException(String.valueOf(response));
+                        }
+                        return response;
                     });
         } catch (Exception e) {
             throw new RuntimeException(e);

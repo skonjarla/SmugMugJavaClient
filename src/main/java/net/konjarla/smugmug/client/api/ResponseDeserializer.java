@@ -33,8 +33,12 @@ public class ResponseDeserializer<T extends SMBaseResponse> extends JsonDeserial
         }
         if ("Album".equals(type)) {
             return p.getCodec().treeToValue(responseNode, SMAlbumResponse.class);
+        } else if ("AlbumSearch".equals(type)) {
+            return p.getCodec().treeToValue(responseNode, SMAlbumsResponse.class);
         } else if ("Image".equals(type)) {
             return p.getCodec().treeToValue(responseNode, SMImageResponse.class);
+        } else if ("ImageSearch".equals(type)) {
+            return p.getCodec().treeToValue(responseNode, SMImagesResponse.class);
         } else if ("ImageMetadata".equals(type)) {
             return p.getCodec().treeToValue(responseNode, SMImageMetadataResponse.class);
         } else if ("AlbumImages".equals(type)) {
@@ -43,8 +47,10 @@ public class ResponseDeserializer<T extends SMBaseResponse> extends JsonDeserial
             return p.getCodec().treeToValue(responseNode, SMUserResponse.class);
         } else if ("Node".equals(type)) {
             return p.getCodec().treeToValue(responseNode, SMNodeResponse.class);
-        } else if ("ChildNodes".equals(type)) {
+        } else if ("ChildNodes".equals(type) || "NodeSearch".equals(type)) {
             return p.getCodec().treeToValue(responseNode, SMNodesResponse.class);
+        } else if ("WebUriLookup".equals(type)) {
+            return p.getCodec().treeToValue(responseNode, SMWebUriLookupResponse.class);
         } else {
             // Handle unknown type
             return null;

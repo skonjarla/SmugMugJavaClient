@@ -1,4 +1,4 @@
-package net.konjarla.smugmug.client.api;
+package net.konjarla.smugmug.model;
 
 import lombok.Builder;
 import lombok.Getter;
