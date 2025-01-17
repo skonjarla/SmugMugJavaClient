@@ -16,13 +16,13 @@ import lombok.extern.jackson.Jacksonized;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SMUri {
     @JsonProperty("Uri")
-    String uri;
+    private String uri;
     @JsonProperty("Locator")
-    String locator;
+    private String locator;
     @JsonProperty("LocatorType")
-    String locatorType;
+    private String locatorType;
     @JsonProperty("UriDescription")
-    String uriDescription;
+    private String uriDescription;
     @JsonProperty("EndpointType")
-    String endPointType;
+    private String endPointType;
 }

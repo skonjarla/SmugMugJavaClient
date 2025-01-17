@@ -18,41 +18,41 @@ import java.util.Date;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SMFolder {
     @JsonProperty("Name")
-    public String name;
+    private String name;
     @JsonProperty("UrlName")
-    public String urlName;
+    private String urlName;
     @JsonProperty("SecurityType")
-    public String securityType;
+    private String securityType;
     @JsonProperty("SortMethod")
-    public String sortMethod;
+    private String sortMethod;
     @JsonProperty("SortDirection")
-    public String sortDirection;
+    private String sortDirection;
     @JsonProperty("Description")
-    public String description;
+    private String description;
     @JsonProperty("Keywords")
-    public String keywords;
+    private String keywords;
     @JsonProperty("PasswordHint")
-    public String passwordHint;
+    private String passwordHint;
     @JsonProperty("DateAdded")
-    public Date dateAdded;
+    private Date dateAdded;
     @JsonProperty("DateModified")
-    public Date dateModified;
+    private Date dateModified;
     @JsonProperty("UrlPath")
-    public String urlPath;
+    private String urlPath;
     @JsonProperty("NodeID")
-    public String nodeID;
+    private String nodeID;
     @JsonProperty("IsEmpty")
-    public boolean isEmpty;
+    private boolean isEmpty;
     @JsonProperty("Uri")
-    public String uri;
+    private String uri;
     @JsonProperty("WebUri")
-    public String webUri;
+    private String webUri;
     @JsonProperty("UriDescription")
-    public String uriDescription;
+    private String uriDescription;
     @JsonProperty("Uris")
-    public SMFolderURIs uris;
+    private SMFolderURIs uris;
     @JsonProperty("ResponseLevel")
-    public String responseLevel;
+    private String responseLevel;
 
     @Getter
     @ToString
@@ -62,33 +62,33 @@ public class SMFolder {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     public static class SMFolderURIs {
         @JsonProperty("FolderByID")
-        public SMUri folderByID;
+        private SMUri folderByID;
         @JsonProperty("Node")
-        public SMUri node;
+        private SMUri node;
         @JsonProperty("User")
-        public SMUri user;
+        private SMUri user;
         @JsonProperty("ParentFolders")
-        public SMUri parentFolders;
+        private SMUri parentFolders;
         @JsonProperty("ParentFolder")
-        public SMUri parentFolder;
+        private SMUri parentFolder;
         @JsonProperty("HighlightImage")
-        public SMUri highlightImage;
+        private SMUri highlightImage;
         @JsonProperty("FolderHighlightImage")
-        public SMUri folderHighlightImage;
+        private SMUri folderHighlightImage;
         @JsonProperty("Folders")
-        public SMUri folders;
+        private SMUri folders;
         @JsonProperty("FolderList")
-        public SMUri folderList;
+        private SMUri folderList;
         @JsonProperty("FolderAlbums")
-        public SMUri folderAlbums;
+        private SMUri folderAlbums;
         @JsonProperty("AlbumList")
-        public SMUri albumList;
+        private SMUri albumList;
         @JsonProperty("FolderSearch")
-        public SMUri folderSearch;
+        private SMUri folderSearch;
         @JsonProperty("FolderPages")
-        public SMUri folderPages;
+        private SMUri folderPages;
         @JsonProperty("Size")
-        public SMUri size;
+        private SMUri size;
     }
 }
 

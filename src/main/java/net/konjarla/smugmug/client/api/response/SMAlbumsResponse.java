@@ -22,7 +22,7 @@ import java.util.List;
 @JsonTypeName("Album")
 public class SMAlbumsResponse extends SMBaseResponse {
     @JsonProperty("Album")
-    List<SMAlbum> albums;
+    private List<SMAlbum> albums;
     @JsonProperty("Pages")
-    SMPages pages;
+    private SMPages pages;
 }

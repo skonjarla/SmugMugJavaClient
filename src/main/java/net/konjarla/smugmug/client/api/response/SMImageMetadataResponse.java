@@ -18,5 +18,5 @@ import net.konjarla.smugmug.model.SMImageMetaData;
 @Accessors(fluent = false, chain = true)
 public class SMImageMetadataResponse extends SMBaseResponse {
     @JsonProperty("ImageMetadata")
-    SMImageMetaData imageMetaData;
+    private SMImageMetaData imageMetaData;
 }

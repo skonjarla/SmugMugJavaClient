@@ -6,9 +6,6 @@ import net.konjarla.smugmug.client.api.response.SMAlbumsResponse;
 import net.konjarla.smugmug.client.api.response.SMBaseResponse;
 import net.konjarla.smugmug.client.api.response.SMImagesResponse;
 import net.konjarla.smugmug.client.api.response.SMNodesResponse;
-import net.konjarla.smugmug.model.SMAlbum;
-import net.konjarla.smugmug.model.SMImage;
-import net.konjarla.smugmug.model.SMNode;
 import net.konjarla.smugmug.model.SearchParams;
 import org.apache.hc.core5.http.NameValuePair;
 import org.apache.hc.core5.http.message.BasicNameValuePair;
@@ -39,7 +36,7 @@ public class Search {
      * @return a list of SMNode objects matching the search criteria, or null if an error occurs
      * @throws IllegalArgumentException if any of the arguments are null or if the search scope is not provided
      */
-    public static List<SMNode> searchInNode(OAuth1HttpClient client, SearchParams searchParams, String searchText) {
+    public static SMNodesResponse searchForNodes(OAuth1HttpClient client, SearchParams searchParams, String searchText) {
         if (client == null || searchParams == null || searchText == null) {
             throw new IllegalArgumentException("searchParams or searchText or OAuth1HttpClient client cannot be null");
         }
@@ -52,10 +49,9 @@ public class Search {
                     .addParameter("Text", searchText)
                     .addParameters(getNameValuePair(searchParams))
                     .build();
-            SMNodesResponse nodesResponse = (SMNodesResponse) SmugMugHttpRequestBuilder
+            return (SMNodesResponse) SmugMugHttpRequestBuilder
                     .create(client, API_CONFIG.requestVerb, uri.toString(), SMBaseResponse.class)
                     .execute();
-            return nodesResponse.getNodes();
         } catch (Exception e) {
             log.error("Error while searching in node", e);
         }
@@ -71,7 +67,7 @@ public class Search {
      * @return a list of SMAlbum objects matching the search criteria, or null if an error occurs
      * @throws IllegalArgumentException if any of the arguments are null or if the search scope is not provided
      */
-    public static List<SMAlbum> searchInAlbum(OAuth1HttpClient client, SearchParams searchParams, String searchText) {
+    public static SMAlbumsResponse searchForAlbums(OAuth1HttpClient client, SearchParams searchParams, String searchText) {
         if (client == null || searchParams == null || searchText == null) {
             throw new IllegalArgumentException("searchParams or searchText or OAuth1HttpClient client cannot be null");
         }
@@ -84,10 +80,9 @@ public class Search {
                     .addParameter("Text", searchText)
                     .addParameters(getNameValuePair(searchParams))
                     .build();
-            SMAlbumsResponse smAlbumsResponse = (SMAlbumsResponse) SmugMugHttpRequestBuilder
+            return (SMAlbumsResponse) SmugMugHttpRequestBuilder
                     .create(client, API_CONFIG.requestVerb, uri.toString(), SMBaseResponse.class)
                     .execute();
-            return smAlbumsResponse.getAlbums();
         } catch (Exception e) {
             log.error("Error while searching in album", e);
         }
@@ -103,7 +98,7 @@ public class Search {
      * @return a list of SMImage objects matching the search criteria, or null if an error occurs
      * @throws IllegalArgumentException if any of the arguments are null
      */
-    public static List<SMImage> searchInImages(OAuth1HttpClient client, SearchParams searchParams, String searchText) {
+    public static SMImagesResponse searchForImages(OAuth1HttpClient client, SearchParams searchParams, String searchText) {
         if (client == null || searchParams == null || searchText == null) {
             throw new IllegalArgumentException("searchParams or searchText or OAuth1HttpClient client cannot be null");
         }
@@ -113,10 +108,9 @@ public class Search {
                     .addParameter("Text", searchText)
                     .addParameters(getNameValuePair(searchParams))
                     .build();
-            SMImagesResponse smImagesResponse = (SMImagesResponse) SmugMugHttpRequestBuilder
+            return (SMImagesResponse) SmugMugHttpRequestBuilder
                     .create(client, API_CONFIG.requestVerb, uri.toString(), SMBaseResponse.class)
                     .execute();
-            return smImagesResponse.getImages();
         } catch (Exception e) {
             log.error("Error while searching in image", e);
         }
@@ -133,7 +127,6 @@ public class Search {
      */
     private static List<NameValuePair> getNameValuePair(SearchParams searchParams) {
         assert searchParams != null;
-        log.info(String.valueOf(searchParams));
         List<NameValuePair> nameValuePairs = new ArrayList<>();
         if (searchParams.getCount() != null) {
             nameValuePairs.add(new BasicNameValuePair("count", String.valueOf(searchParams.getCount())));

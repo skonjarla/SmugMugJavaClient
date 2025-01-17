@@ -18,7 +18,7 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ImageInfo {
     @JsonProperty("metadatalabels")
-    List<String> metadatalabels;
+    private List<String> metadatalabels;
     @JsonProperty("webUri")
-    String weburi;
+    private String weburi;
 }

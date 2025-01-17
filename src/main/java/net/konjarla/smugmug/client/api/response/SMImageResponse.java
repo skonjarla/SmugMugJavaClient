@@ -17,5 +17,5 @@ import net.konjarla.smugmug.model.SMImage;
 @Accessors(fluent = false, chain = true)
 public class SMImageResponse extends SMBaseResponse {
     @JsonProperty("Image")
-    SMImage image;
+    private SMImage image;
 }

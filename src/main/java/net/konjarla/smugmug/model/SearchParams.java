@@ -8,7 +8,7 @@ import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.jackson.Jacksonized;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Getter
 @Builder
@@ -26,13 +26,13 @@ public class SearchParams {
     @JsonProperty("SortMethod")
     private SortMethod sortMethod;
     @JsonProperty("DateTakenStart")
-    private Date dateTakenStart;
+    private LocalDateTime dateTakenStart;
     @JsonProperty("DateTakenEnd")
-    private Date dateTakenEnd;
+    private LocalDateTime dateTakenEnd;
     @JsonProperty("DateUploadedStart")
-    private Date dateUploadedStart;
+    private LocalDateTime dateUploadedStart;
     @JsonProperty("DateUploadedEnd")
-    private Date dateUploadedEnd;
+    private LocalDateTime dateUploadedEnd;
     @JsonProperty("Keywords")
     private String keywords;
     @JsonProperty("Relevance")

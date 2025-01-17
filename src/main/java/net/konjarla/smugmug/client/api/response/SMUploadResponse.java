@@ -16,15 +16,26 @@ import lombok.extern.jackson.Jacksonized;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SMUploadResponse {
     @JsonProperty("stat")
-    String stat;
+    private String stat;
     @JsonProperty("method")
-    String method;
+    private String method;
     @JsonProperty("Image")
-    UploadResponseImage image;
+    private UploadResponseImage image;
     @JsonProperty("Asset")
-    Asset asset;
+    private Asset asset;
     @JsonProperty("code")
-    Integer code;
+    private Integer code;
     @JsonProperty("message")
-    String message;
+    private String message;
+
+    @Getter
+    @Builder
+    @Jacksonized
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    public static class Asset{
+        @JsonProperty("AssetComponentUri")
+        private String assetComponentUri;
+        @JsonProperty("AssetUri")
+        private String assetUri;
+    }
 }

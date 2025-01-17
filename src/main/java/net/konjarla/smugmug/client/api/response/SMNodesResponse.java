@@ -18,7 +18,7 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SMNodesResponse extends SMBaseResponse {
     @JsonProperty("Node")
-    List<SMNode> nodes;
+    private List<SMNode> nodes;
     @JsonProperty("Pages")
-    SMPages pages;
+    private SMPages pages;
 }

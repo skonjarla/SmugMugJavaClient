@@ -17,5 +17,5 @@ import net.konjarla.smugmug.model.SMNode;
 @Accessors(fluent = false, chain = true)
 public class SMNodeResponse extends SMBaseResponse {
     @JsonProperty("Node")
-    SMNode node;
+    private SMNode node;
 }

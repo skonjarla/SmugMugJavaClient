@@ -20,17 +20,17 @@ import net.konjarla.smugmug.model.SMPages;
 //})
 public abstract class SMBaseResponse {
     @JsonProperty("Uri")
-    String uri;
+    private String uri;
     @JsonProperty("Locator")
-    String locator;
+    private String locator;
     @JsonProperty("LocatorType")
-    String locatorType;
+    private String locatorType;
     @JsonProperty("UriDescription")
-    String uriDescription;
+    private String uriDescription;
     @JsonProperty("EndpointType")
-    String endPointType;
+    private String endPointType;
     @JsonProperty("DocUri")
-    String docUri;
+    private String docUri;
     @JsonProperty("Pages")
-    SMPages pages;
+    private SMPages pages;
 }

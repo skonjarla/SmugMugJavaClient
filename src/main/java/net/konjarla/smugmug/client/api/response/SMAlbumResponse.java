@@ -19,5 +19,5 @@ import net.konjarla.smugmug.model.SMAlbum;
 @JsonTypeName("Album")
 public class SMAlbumResponse extends SMBaseResponse {
     @JsonProperty("Album")
-    SMAlbum album;
+    private SMAlbum album;
 }

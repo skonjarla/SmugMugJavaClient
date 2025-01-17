@@ -42,34 +42,34 @@ public class SMUser {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     public static class SMUserURIs {
         @JsonProperty("BioImage")
-        public SMUri bioImage;
+        private SMUri bioImage;
         @JsonProperty("CoverImage")
-        public SMUri coverImage;
+        private SMUri coverImage;
         @JsonProperty("UserProfile")
-        public SMUri userProfile;
+        private SMUri userProfile;
         @JsonProperty("Node")
-        public SMUri node;
+        private SMUri node;
         @JsonProperty("Folder")
-        public SMUri folder;
+        private SMUri folder;
         @JsonProperty("Features")
-        public SMUri features;
+        private SMUri features;
         @JsonProperty("SiteSettings")
-        public SMUri siteSettings;
+        private SMUri siteSettings;
         @JsonProperty("UserAlbums")
-        public SMUri userAlbums;
+        private SMUri userAlbums;
         @JsonProperty("UserGeoMedia")
-        public SMUri userGeoMedia;
+        private SMUri userGeoMedia;
         @JsonProperty("UserPopularMedia")
-        public SMUri userPopularMedia;
+        private SMUri userPopularMedia;
         @JsonProperty("UserFeaturedAlbums")
-        public SMUri userFeaturedAlbums;
+        private SMUri userFeaturedAlbums;
         @JsonProperty("UserRecentImages")
-        public SMUri userRecentImages;
+        private SMUri userRecentImages;
         @JsonProperty("UserImageSearch")
-        public SMUri userImageSearch;
+        private SMUri userImageSearch;
         @JsonProperty("UserTopKeywords")
-        public SMUri userTopKeywords;
+        private SMUri userTopKeywords;
         @JsonProperty("UrlPathLookup")
-        public SMUri urlPathLookup;
+        private SMUri urlPathLookup;
     }
 }

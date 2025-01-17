@@ -19,7 +19,7 @@ import java.util.List;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SMImagesResponse extends SMBaseResponse {
     @JsonAlias({"AlbumImage", "Image"})
-    List<SMImage> images;
+    private List<SMImage> images;
     @JsonProperty("Pages")
-    SMPages pages;
+    private SMPages pages;
 }

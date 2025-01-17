@@ -18,9 +18,9 @@ import net.konjarla.smugmug.model.SMFolder;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SMWebUriLookupResponse extends SMBaseResponse {
     @JsonProperty("AlbumImage")
-    SMAlbumImage albumImage;
+    private SMAlbumImage albumImage;
     @JsonProperty("Folder")
-    SMFolder folder;
+    private SMFolder folder;
     @JsonProperty("Album")
-    SMAlbumImage album;
+    private SMAlbumImage album;
 }
