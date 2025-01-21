@@ -98,6 +98,10 @@ System.out.println(Nodes.getAlbumKeyByNodeId(oAuthClient, NODE_ID));
         SMAlbum album = Albums.getAlbumByKey(oAuthClient, ALBUM_KEY);
         System.out.println(album.getName());
 ```
+* Add an album to a folder
+```java
+SMNode response = Albums.addAlbum(oAuthClient, "FOLDER_ID", SMAlbum.builder().name("Test Album").build());
+```
 * Following code snippet will update an album's description
 * Album URI is **mandatory**
 ```java
@@ -123,6 +127,34 @@ System.out.println(Nodes.getAlbumKeyByNodeId(oAuthClient, NODE_ID));
                         .build();
         SMUploadResponse response = Upload.uploadFileToAlbum(oAuthClient, imageToUpload);
         System.out.println(response.getStat() + " | " + response.getImage().getImageUri());
+```
+* Considering SmugMug offers a comprehensive API. Here is the general information about request to any SmugMug API end point.
+* Essentially, create Oauth1HttpClient
+* Pass the OAuth1HttpClient to any of the SmugMug API methods.
+```java
+        ObjectMapper mapper = new ObjectMapper();
+        String imageSizesEndpoint = new SmugMugApiConfig().hostName + Images.getImageByKey(oAuthClient, "IMAGE_KEY").getUris().getImageSizes().getUri();
+        String imageSizes = SmugMugHttpRequestBuilder.create(oAuthClient, HttpGet.METHOD_NAME, imageSizesEndpoint, String.class)
+                .executeRaw(rawResponse -> {
+                    String entity = EntityUtils.toString(rawResponse.getEntity(), StandardCharsets.UTF_8); // Make API Request
+                    TypeReference<HashMap<String, Object>> typeRef
+                            = new TypeReference<HashMap<String, Object>>() {
+                    };
+
+                    HashMap<String, Object> o;
+
+                    try {
+                        o = mapper.readValue(entity, typeRef);
+                        // Extract Response key from the returned JSON response.
+                        HashMap<String, Object> r = mapper.convertValue(o.get("Response"),
+                                new TypeReference<HashMap<String, Object>>() {
+                                });
+                        return mapper.writerWithDefaultPrettyPrinter().writeValueAsString(r);
+                    } catch (JsonProcessingException | IllegalArgumentException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
+        System.out.println(imageSizes);
 ```
 ### Contribution guidelines ###
 
