@@ -62,4 +62,33 @@ public class SMNode {
     private String uriDescription;
     @JsonProperty("Uris")
     private SMNodeURIs uris;
+
+    @Getter
+    @Builder
+    @ToString
+    @Jacksonized
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class SMNodeURIs {
+        @JsonProperty("Album")
+        private SMUri album;
+        @JsonProperty("FolderByID")
+        private SMUri folderByID;
+        @JsonProperty("ParentNode")
+        private SMUri parentNode;
+        @JsonProperty("ParentNodes")
+        private SMUri parentNodes;
+        @JsonProperty("User")
+        private SMUri user;
+        @JsonProperty("NodeCoverImage")
+        private SMUri nodeCoverImage;
+        @JsonProperty("HighlightImage")
+        private SMUri highlightImage;
+        @JsonProperty("NodeComments")
+        private SMUri nodeComments;
+        @JsonProperty("NodePricelist")
+        private SMUri nodePricelist;
+        @JsonProperty("ChildNodes")
+        private SMUri childNodes;
+    }
 }

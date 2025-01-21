@@ -1,5 +1,6 @@
 package net.konjarla.smugmug.client.api.response;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.EqualsAndHashCode;
@@ -17,8 +18,8 @@ import java.util.List;
 @Jacksonized
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SMImagesResponse extends SMBaseResponse {
-    @JsonProperty("AlbumImage")
-    List<SMImage> images;
+    @JsonAlias({"AlbumImage", "Image"})
+    private List<SMImage> images;
     @JsonProperty("Pages")
-    SMPages pages;
+    private SMPages pages;
 }

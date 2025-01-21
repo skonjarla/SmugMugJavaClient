@@ -17,5 +17,5 @@ import net.konjarla.smugmug.model.SMUser;
 @Accessors(fluent = false, chain = true)
 public class SMUserResponse extends SMBaseResponse {
     @JsonProperty("User")
-    SMUser user;
+    private SMUser user;
 }

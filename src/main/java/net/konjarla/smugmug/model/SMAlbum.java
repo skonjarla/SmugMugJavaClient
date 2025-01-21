@@ -4,125 +4,175 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
+import lombok.ToString;
 import lombok.extern.jackson.Jacksonized;
 
 @Getter
 @Builder
+@ToString
 @Jacksonized
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SMAlbum {
     @JsonProperty("NiceName")
-    String niceName;
+    private String niceName;
     @JsonProperty("UrlName")
-    String urlName;
+    private String urlName;
     @JsonProperty("Title")
-    String title;
+    private String title;
     @JsonProperty("Name")
-    String name;
+    private String name;
     @JsonProperty("AllowDownloads")
-    Boolean allowDownloads;
+    private Boolean allowDownloads;
     @JsonProperty("Backprinting")
-    String backprinting;
+    private String backprinting;
     @JsonProperty("BoutiquePackaging")
-    String boutiquePackaging;
+    private String boutiquePackaging;
     @JsonProperty("CanRank")
-    Boolean canRank;
+    private Boolean canRank;
     @JsonProperty("Clean")
-    Boolean clean;
+    private Boolean clean;
     @JsonProperty("Comments")
-    Boolean comments;
+    private Boolean comments;
     @JsonProperty("Description")
-    String description;
+    private String description;
     @JsonProperty("EXIF")
-    Boolean exif;
+    private Boolean exif;
     @JsonProperty("External")
-    Boolean external;
+    private Boolean external;
     @JsonProperty("FamilyEdit")
-    Boolean familyEdit;
+    private Boolean familyEdit;
     @JsonProperty("Filenames")
-    Boolean fileNames;
+    private Boolean fileNames;
     @JsonProperty("FriendEdit")
-    Boolean friendEdit;
+    private Boolean friendEdit;
     @JsonProperty("Geography")
-    Boolean geography;
+    private Boolean geography;
     @JsonProperty("Header")
-    String header;
+    private String header;
     @JsonProperty("HideOwner")
-    Boolean hideOwner;
+    private Boolean hideOwner;
     @JsonProperty("InterceptShipping")
-    String interceptShipping;
+    private String interceptShipping;
     @JsonProperty("Keywords")
-    String keywords;
+    private String keywords;
     @JsonProperty("LargestSize")
-    String largestSize;
+    private String largestSize;
     @JsonProperty("PackagingBranding")
-    Boolean packagingBranding;
+    private Boolean packagingBranding;
     @JsonProperty("Password")
-    String password;
+    private String password;
     @JsonProperty("PasswordHint")
-    String passwordHint;
+    private String passwordHint;
     @JsonProperty("Printable")
-    Boolean printable;
+    private Boolean printable;
     @JsonProperty("Privacy")
-    String privacy;
+    private String privacy;
     @JsonProperty("ProofDays")
-    Integer proofDays;
+    private Integer proofDays;
     @JsonProperty("Protected")
-    Boolean isProtected;
+    private Boolean isProtected;
     @JsonProperty("Share")
-    Boolean share;
+    private Boolean share;
     @JsonProperty("Slideshow")
-    Boolean slideShow;
+    private Boolean slideShow;
     @JsonProperty("SmugSearchable")
-    String smugSearchable;
+    private String smugSearchable;
     @JsonProperty("SortDirection")
-    String sortDirection;
+    private String sortDirection;
     @JsonProperty("SortMethod")
-    String sortMethod;
+    private String sortMethod;
     @JsonProperty("SquareThumbs")
-    Boolean squareThumbs;
+    private Boolean squareThumbs;
     @JsonProperty("Watermark")
-    Boolean watermark;
+    private Boolean watermark;
     @JsonProperty("WorldSearchable")
-    Boolean worldSearchable;
+    private Boolean worldSearchable;
     @JsonProperty("SecurityType")
-    String securityType;
+    private String securityType;
     @JsonProperty("CommerceLightbox")
-    Boolean commerceLightbox;
+    private Boolean commerceLightbox;
     @JsonProperty("AlbumKey")
-    String albumKey;
+    private String albumKey;
     @JsonProperty("CanBuy")
-    Boolean canBuy;
+    private Boolean canBuy;
     @JsonProperty("CanFavorite")
-    Boolean canFavorite;
+    private Boolean canFavorite;
     @JsonProperty("Date")
-    String date;
+    private String date;
     @JsonProperty("LastUpdated")
-    String lastUpdated;
+    private String lastUpdated;
     @JsonProperty("ImagesLastUpdated")
-    String imagesLastUpdated;
+    private String imagesLastUpdated;
     @JsonProperty("NodeID")
-    String nodeId;
+    private String nodeId;
     @JsonProperty("OriginalSizes")
-    Long originalSizes;
+    private Long originalSizes;
     @JsonProperty("TotalSizes")
-    Long totalSizes;
+    private Long totalSizes;
     @JsonProperty("ImageCount")
-    Integer imageCount;
+    private Integer imageCount;
     @JsonProperty("UrlPath")
-    String urlPath;
+    private String urlPath;
     @JsonProperty("CanShare")
-    Boolean canShare;
+    private Boolean canShare;
     @JsonProperty("HasDownloadPassword")
-    Boolean hasDownloadPassword;
+    private Boolean hasDownloadPassword;
     @JsonProperty("Uri")
-    String uri;
+    private String uri;
     @JsonProperty("WebUri")
-    String webUri;
+    private String webUri;
     @JsonProperty("UriDescription")
-    String uriDescription;
+    private String uriDescription;
     @JsonProperty("Uris")
-    SMAlbumURIs uris;
+    private SMAlbumURIs uris;
+
+    @Data
+    @Builder
+    @ToString
+    @Jacksonized
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class SMAlbumURIs {
+        @JsonProperty("AlbumShareUris")
+        private SMUri albumShareUris;
+        @JsonProperty("Node")
+        private SMUri node;
+        @JsonProperty("NodeCoverImage")
+        private SMUri nodeCoverImage;
+        @JsonProperty("User")
+        private SMUri user;
+        @JsonProperty("Folder")
+        private SMUri folder;
+        @JsonProperty("ParentFolders")
+        private SMUri parentFolders;
+        @JsonProperty("HighlightImage")
+        private SMUri highlightImage;
+        @JsonProperty("AlbumHighlightImage")
+        private SMUri albumHighlightImage;
+        @JsonProperty("AlbumImages")
+        private SMUri albumImages;
+        @JsonProperty("AlbumPopularMedia")
+        private SMUri albumPopularMedia;
+        @JsonProperty("AlbumGeoMedia")
+        private SMUri albumGeoMedia;
+        @JsonProperty("MoveAlbumImages")
+        private SMUri moveAlbumImages;
+        @JsonProperty("CollectImages")
+        private SMUri collectImages;
+        @JsonProperty("ApplyAlbumTemplate")
+        private SMUri applyAlbumTemplate;
+        @JsonProperty("DeleteAlbumImages")
+        private SMUri deleteAlbumImages;
+        @JsonProperty("UploadFromUri")
+        private SMUri uploadFromUri;
+        @JsonProperty("AlbumDownload")
+        private SMUri albumDownload;
+        @JsonProperty("AlbumPrices")
+        private SMUri albumPrices;
+        @JsonProperty("AlbumPricelistExclusions")
+        private SMUri albumPricelistExclusions;
+    }
 }

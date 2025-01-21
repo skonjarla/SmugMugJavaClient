@@ -12,11 +12,11 @@ import lombok.extern.jackson.Jacksonized;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UploadResponseImage {
     @JsonProperty("StatusImageReplaceUri")
-    String statusImageReplaceUri;
+    private String statusImageReplaceUri;
     @JsonProperty("ImageUri")
-    String imageUri;
+    private String imageUri;
     @JsonProperty("AlbumImageUri")
-    String albumImageUri;
+    private String albumImageUri;
     @JsonProperty("URL")
-    String uRL;
+    private String uRL;
 }

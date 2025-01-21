@@ -8,15 +8,16 @@ import lombok.Getter;
 import lombok.ToString;
 import lombok.extern.jackson.Jacksonized;
 
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Date;
 
 @Getter
-@Builder
 @ToString
+@Builder
 @Jacksonized
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class SMImage {
+public class SMAlbumImage {
     @JsonProperty("Title")
     private String title;
     @JsonProperty("Caption")
@@ -24,63 +25,83 @@ public class SMImage {
     @JsonProperty("Keywords")
     private String keywords;
     @JsonProperty("KeywordArray")
-    private List<String> keywordArray;
+    private ArrayList<String> keywordArray;
     @JsonProperty("Watermark")
     private String watermark;
     @JsonProperty("Latitude")
-    private Double latitude;
+    private String latitude;
     @JsonProperty("Longitude")
-    private Double longitude;
+    private String longitude;
     @JsonProperty("Altitude")
-    private Double altitude;
+    private int altitude;
     @JsonProperty("Hidden")
-    private Boolean hidden;
+    private boolean hidden;
     @JsonProperty("ThumbnailUrl")
     private String thumbnailUrl;
     @JsonProperty("FileName")
     private String fileName;
     @JsonProperty("Processing")
-    private Boolean processing;
+    private boolean processing;
     @JsonProperty("UploadKey")
     private String uploadKey;
     @JsonProperty("Date")
-    private String date;
+    private Date date;
+    @JsonProperty("DateTimeUploaded")
+    private Date dateTimeUploaded;
+    @JsonProperty("DateTimeOriginal")
+    private Date dateTimeOriginal;
     @JsonProperty("Format")
     private String format;
     @JsonProperty("OriginalHeight")
-    private Integer originalHeight;
+    private int originalHeight;
     @JsonProperty("OriginalWidth")
-    private Integer originalWidth;
+    private int originalWidth;
+    @JsonProperty("OriginalSize")
+    private int originalSize;
     @JsonProperty("LastUpdated")
-    private String lastUpdated;
+    private Date lastUpdated;
     @JsonProperty("Collectable")
-    private String collectable;
+    private boolean collectable;
     @JsonProperty("IsArchive")
-    private Boolean isArchive;
+    private boolean isArchive;
     @JsonProperty("IsVideo")
-    private Boolean isVideo;
+    private boolean isVideo;
+    @JsonProperty("ComponentFileTypes")
+    private ComponentFileTypes componentFileTypes;
     @JsonProperty("CanEdit")
-    private Boolean canEdit;
+    private boolean canEdit;
     @JsonProperty("CanBuy")
-    private Boolean canBuy;
+    private boolean canBuy;
     @JsonProperty("Protected")
-    private Boolean isProtected;
+    private boolean isProtected;
+    @JsonProperty("EZProject")
+    private boolean eZProject;
     @JsonProperty("Watermarked")
-    private Boolean watermarked;
+    private boolean watermarked;
     @JsonProperty("ImageKey")
     private String imageKey;
+    @JsonProperty("Serial")
+    private int serial;
     @JsonProperty("ArchivedUri")
     private String archivedUri;
     @JsonProperty("ArchivedSize")
-    private Integer archivedSize;
+    private int archivedSize;
     @JsonProperty("ArchivedMD5")
     private String archivedMD5;
+    @JsonProperty("Status")
+    private String status;
+    @JsonProperty("SubStatus")
+    private String subStatus;
     @JsonProperty("CanShare")
-    private Boolean canShare;
+    private boolean canShare;
     @JsonProperty("Comments")
-    private Boolean comments;
+    private boolean comments;
     @JsonProperty("ShowKeywords")
-    private Boolean showKeywords;
+    private boolean showKeywords;
+    @JsonProperty("FormattedValues")
+    private FormattedValues formattedValues;
+    @JsonProperty("PreferredDisplayFileExtension")
+    private String preferredDisplayFileExtension;
     @JsonProperty("Uri")
     private String uri;
     @JsonProperty("WebUri")
@@ -88,9 +109,11 @@ public class SMImage {
     @JsonProperty("UriDescription")
     private String uriDescription;
     @JsonProperty("Uris")
-    private SMImageURIs uris;
+    private Uris uris;
+    @JsonProperty("AlbumKey")
+    private String albumKey;
     @JsonProperty("Movable")
-    private Boolean movable;
+    private boolean movable;
     @JsonProperty("Origin")
     private String origin;
 
@@ -100,7 +123,55 @@ public class SMImage {
     @Jacksonized
     @JsonIgnoreProperties(ignoreUnknown = true)
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    public static class SMImageURIs {
+    public static class ComponentFileTypes {
+        @JsonProperty("Image")
+        private ArrayList<String> image;
+    }
+
+    @Getter
+    @ToString
+    @Builder
+    @Jacksonized
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class Caption {
+        private String html;
+        private String text;
+    }
+
+    @Getter
+    @ToString
+    @Builder
+    @Jacksonized
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class FileName {
+        private String html;
+        private String text;
+    }
+
+    @Getter
+    @ToString
+    @Builder
+    @Jacksonized
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    static class FormattedValues {
+        @JsonProperty("Caption")
+        private Caption caption;
+        @JsonProperty("FileName")
+        private FileName fileName;
+    }
+
+    @Getter
+    @ToString
+    @Builder
+    @Jacksonized
+    @JsonIgnoreProperties(ignoreUnknown = true)
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public static class Uris {
+        @JsonProperty("Components")
+        private SMUri components;
         @JsonProperty("LargestImage")
         private SMUri largestImage;
         @JsonProperty("ImageSizes")
@@ -115,14 +186,18 @@ public class SMImage {
         private SMUri regions;
         @JsonProperty("ImageAlbum")
         private SMUri imageAlbum;
-        @JsonProperty("ImageDownload")
-        private SMUri imageDownload;
         @JsonProperty("ImageOwner")
         private SMUri imageOwner;
+        @JsonProperty("ImageAlbums")
+        private SMUri imageAlbums;
+        @JsonProperty("ImageDownload")
+        private SMUri imageDownload;
         @JsonProperty("RotateImage")
         private SMUri rotateImage;
         @JsonProperty("ColorImage")
         private SMUri colorImage;
+        @JsonProperty("CopyImage")
+        private SMUri copyImage;
         @JsonProperty("CropImage")
         private SMUri cropImage;
         @JsonProperty("ImageMetadata")
@@ -135,7 +210,13 @@ public class SMImage {
         private SMUri album;
         @JsonProperty("Image")
         private SMUri image;
+        @JsonProperty("AlbumImagePricelistExclusions")
+        private SMUri albumImagePricelistExclusions;
+        @JsonProperty("AlbumImageMetadata")
+        private SMUri albumImageMetadata;
         @JsonProperty("AlbumImageShareUris")
         private SMUri albumImageShareUris;
+        @JsonProperty("AlbumImageDownload")
+        private SMUri albumImageDownload;
     }
 }

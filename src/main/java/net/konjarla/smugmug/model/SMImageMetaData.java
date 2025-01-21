@@ -15,159 +15,158 @@ import lombok.extern.jackson.Jacksonized;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @ToString
 public class SMImageMetaData {
-
     @JsonProperty("Title")
-    String title;
+    private String title;
     @JsonProperty("Caption")
-    String caption;
+    private String caption;
     @JsonProperty("UserComment")
-    String userComment;
+    private String userComment;
     @JsonProperty("Keywords")
-    String keywords;
+    private String keywords;
     @JsonProperty("Author")
-    String author;
+    private String author;
     @JsonProperty("Copyright")
-    String copyright;
+    private String copyright;
     @JsonProperty("CopyrightUrl")
-    String copyrightUrl;
+    private String copyrightUrl;
     @JsonProperty("CopyrightFlag")
-    String copyrightFlag;
+    private String copyrightFlag;
     @JsonProperty("Source")
-    String source;
+    private String source;
     @JsonProperty("Credit")
-    String credit;
+    private String credit;
     @JsonProperty("City")
-    String city;
+    private String city;
     @JsonProperty("State")
-    String state;
+    private String state;
     @JsonProperty("Country")
-    String country;
+    private String country;
     @JsonProperty("Rating")
-    String rating;
+    private String rating;
     @JsonProperty("CreatorContactInfo")
-    String creatorContactInfo;
+    private String creatorContactInfo;
     @JsonProperty("Category")
-    String category;
+    private String category;
     @JsonProperty("SupplementalCategories")
-    String supplementalCategories;
+    private String supplementalCategories;
     @JsonProperty("SpecialInstructions")
-    String specialInstructions;
+    private String specialInstructions;
     @JsonProperty("AuthorTitle")
-    String authorTitle;
+    private String authorTitle;
     @JsonProperty("CountryCode")
-    String countryCode;
+    private String countryCode;
     @JsonProperty("TransmissionReference")
-    String transmissionReference;
+    private String transmissionReference;
     @JsonProperty("Headline")
-    String headline;
+    private String headline;
     @JsonProperty("WriterEditor")
-    String writerEditor;
+    private String writerEditor;
     @JsonProperty("Lens")
-    String lens;
+    private String lens;
     @JsonProperty("Make")
-    String make;
+    private String make;
     @JsonProperty("Model")
-    String model;
+    private String model;
     @JsonProperty("Aperture")
-    String aperture;
+    private String aperture;
     @JsonProperty("DateTimeModified")
-    String dateTimeModified;
+    private String dateTimeModified;
     @JsonProperty("DateTimeCreated")
-    String dateTimeCreated;
+    private String dateTimeCreated;
     @JsonProperty("DateCreated")
-    String dateCreated;
+    private String dateCreated;
     @JsonProperty("TimeCreated")
-    String timeCreated;
+    private String timeCreated;
     @JsonProperty("MicroDateTimeCreated")
-    String microDateTimeCreated;
+    private String microDateTimeCreated;
     @JsonProperty("MicroDateTimeDigitized")
-    String microDateTimeDigitized;
+    private String microDateTimeDigitized;
     @JsonProperty("DateDigitized")
-    String dateDigitized;
+    private String dateDigitized;
     @JsonProperty("Exposure")
-    String exposure;
+    private String exposure;
     @JsonProperty("ISO")
-    Integer iso;
+    private Integer iso;
     @JsonProperty("FocalLength")
-    String focalLength;
+    private String focalLength;
     @JsonProperty("FocalLength35mm")
-    String focalLength35mm;
+    private String focalLength35mm;
     @JsonProperty("CompressedBitsPerPixel")
-    String compressedBitsPerPixel;
+    private String compressedBitsPerPixel;
     @JsonProperty("Flash")
-    String flash;
+    private String flash;
     @JsonProperty("Metering")
-    String metering;
+    private String metering;
     @JsonProperty("ExposureProgram")
-    String exposureProgram;
+    private String exposureProgram;
     @JsonProperty("ExposureCompensation")
-    String exposureCompensation;
+    private String exposureCompensation;
     @JsonProperty("ExposureMode")
-    String exposureMode;
+    private String exposureMode;
     @JsonProperty("LightSource")
-    String lightSource;
+    private String lightSource;
     @JsonProperty("WhiteBalance")
-    String whiteBalance;
+    private String whiteBalance;
     @JsonProperty("DigitalZoomRatio")
-    String digitalZoomRatio;
+    private String digitalZoomRatio;
     @JsonProperty("Contrast")
-    String contrast;
+    private String contrast;
     @JsonProperty("Saturation")
-    String saturation;
+    private String saturation;
     @JsonProperty("Sharpness")
-    String sharpness;
+    private String sharpness;
     @JsonProperty("SubjectDistance")
-    String subjectDistance;
+    private String subjectDistance;
     @JsonProperty("SubjectRange")
-    String subjectRange;
+    private String subjectRange;
     @JsonProperty("SensingMethod")
-    String sensingMethod;
+    private String sensingMethod;
     @JsonProperty("ColorSpace")
-    String colorSpace;
+    private String colorSpace;
     @JsonProperty("Brightness")
-    String brightness;
+    private String brightness;
     @JsonProperty("LatitudeReference")
-    String latitudeReference;
+    private String latitudeReference;
     @JsonProperty("LongitudeReference")
-    String longitudeReference;
+    private String longitudeReference;
     @JsonProperty("Latitude")
-    Double latitude;
+    private Double latitude;
     @JsonProperty("Longitude")
-    Double longitude;
+    private Double longitude;
     @JsonProperty("AltitudeReference")
-    String altitudeReference;
+    private String altitudeReference;
     @JsonProperty("Altitude")
-    String altitude;
+    private String altitude;
     @JsonProperty("SceneCaptureType")
-    String sceneCaptureType;
+    private String sceneCaptureType;
     @JsonProperty("GainControl")
-    String gainControl;
+    private String gainControl;
     @JsonProperty("ScaleFactor")
-    String scaleFactor;
+    private String scaleFactor;
     @JsonProperty("CircleOfConfusion")
-    String circleOfConfusion;
+    private String circleOfConfusion;
     @JsonProperty("FieldOfView")
-    String fieldOfView;
+    private String fieldOfView;
     @JsonProperty("DepthOfField")
-    String depthOfField;
+    private String depthOfField;
     @JsonProperty("HyperfocalDistance")
-    String hyperfocalDistance;
+    private String hyperfocalDistance;
     @JsonProperty("NormalizedLightValue")
-    String normalizedLightValue;
+    private String normalizedLightValue;
     @JsonProperty("Duration")
-    Double duration;
+    private Double duration;
     @JsonProperty("AudioCodec")
-    String audioCodec;
+    private String audioCodec;
     @JsonProperty("VideoCodec")
-    String videoCodec;
+    private String videoCodec;
     @JsonProperty("Software")
-    String software;
+    private String software;
     @JsonProperty("SerialNumber")
-    String serialNumber;
+    private String serialNumber;
     @JsonProperty("LensSerialNumber")
-    String lensSerialNumber;
+    private String lensSerialNumber;
     @JsonProperty("Uri")
-    String uri;
+    private String uri;
     @JsonProperty("UriDescription")
-    String uriDescription;
+    private String uriDescription;
 }

@@ -5,30 +5,30 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.ToString;
 import lombok.extern.jackson.Jacksonized;
 
 @Getter
 @Builder
+@ToString
 @Jacksonized
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SMPages {
-
     @JsonProperty("Total")
-    Integer total;
+    private Integer total;
     @JsonProperty("Start")
-    Integer start;
+    private Integer start;
     @JsonProperty("Count")
-    Integer count;
+    private Integer count;
     @JsonProperty("RequestedCount")
-    Integer requestedCount;
+    private Integer requestedCount;
     @JsonProperty("FirstPage")
-    String firstPage;
+    private  String firstPage;
     @JsonProperty("LastPage")
-    String lastPage;
+    private String lastPage;
     @JsonProperty("PrevPage")
-    String prevPage;
+    private String prevPage;
     @JsonProperty("NextPage")
-    String nextPage;
-
+    private String nextPage;
 }
