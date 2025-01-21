@@ -128,7 +128,7 @@ SMNode response = Albums.addAlbum(oAuthClient, "FOLDER_ID", SMAlbum.builder().na
         SMUploadResponse response = Upload.uploadFileToAlbum(oAuthClient, imageToUpload);
         System.out.println(response.getStat() + " | " + response.getImage().getImageUri());
 ```
-* Considering SmugMug offers a comprehensive API, here is the general information about request to any SmugMug API end point.
+* Considering SmugMug offers a comprehensive API, here is the general information about making a request to any SmugMug API end point.
 * Essentially, create Oauth1HttpClient
 * Pass the OAuth1HttpClient to any of the SmugMug API methods.
 ```java
