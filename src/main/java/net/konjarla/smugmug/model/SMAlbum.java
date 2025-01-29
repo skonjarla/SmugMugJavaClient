@@ -14,7 +14,7 @@ import lombok.extern.jackson.Jacksonized;
 @ToString
 @Jacksonized
 @JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class SMAlbum {
     @JsonProperty("NiceName")
     private String niceName;
@@ -134,7 +134,7 @@ public class SMAlbum {
     @ToString
     @Jacksonized
     @JsonIgnoreProperties(ignoreUnknown = true)
-    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     public static class SMAlbumURIs {
         @JsonProperty("AlbumShareUris")
         private SMUri albumShareUris;

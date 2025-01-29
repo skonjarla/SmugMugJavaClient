@@ -15,7 +15,7 @@ import java.util.Date;
 @ToString
 @Jacksonized
 @JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class SMFolder {
     @JsonProperty("Name")
     private String name;
@@ -59,7 +59,7 @@ public class SMFolder {
     @Builder
     @Jacksonized
     @JsonIgnoreProperties(ignoreUnknown = true)
-    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     public static class SMFolderURIs {
         @JsonProperty("FolderByID")
         private SMUri folderByID;

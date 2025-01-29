@@ -16,7 +16,7 @@ import java.util.Date;
 @ToString
 @Jacksonized
 @JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class SMNode {
     @JsonProperty("Description")
     private String description;
@@ -68,7 +68,7 @@ public class SMNode {
     @ToString
     @Jacksonized
     @JsonIgnoreProperties(ignoreUnknown = true)
-    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     public static class SMNodeURIs {
         @JsonProperty("Album")
         private SMUri album;
