@@ -16,7 +16,7 @@ import java.util.Date;
 @Builder
 @Jacksonized
 @JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class SMAlbumImage {
     @JsonProperty("Title")
     private String title;
@@ -122,7 +122,7 @@ public class SMAlbumImage {
     @Builder
     @Jacksonized
     @JsonIgnoreProperties(ignoreUnknown = true)
-    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     public static class ComponentFileTypes {
         @JsonProperty("Image")
         private ArrayList<String> image;
@@ -133,7 +133,7 @@ public class SMAlbumImage {
     @Builder
     @Jacksonized
     @JsonIgnoreProperties(ignoreUnknown = true)
-    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     public static class Caption {
         private String html;
         private String text;
@@ -144,7 +144,7 @@ public class SMAlbumImage {
     @Builder
     @Jacksonized
     @JsonIgnoreProperties(ignoreUnknown = true)
-    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     public static class FileName {
         private String html;
         private String text;
@@ -155,7 +155,7 @@ public class SMAlbumImage {
     @Builder
     @Jacksonized
     @JsonIgnoreProperties(ignoreUnknown = true)
-    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     static class FormattedValues {
         @JsonProperty("Caption")
         private Caption caption;
@@ -168,7 +168,7 @@ public class SMAlbumImage {
     @Builder
     @Jacksonized
     @JsonIgnoreProperties(ignoreUnknown = true)
-    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     public static class Uris {
         @JsonProperty("Components")
         private SMUri components;

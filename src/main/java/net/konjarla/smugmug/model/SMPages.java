@@ -13,7 +13,7 @@ import lombok.extern.jackson.Jacksonized;
 @ToString
 @Jacksonized
 @JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class SMPages {
     @JsonProperty("Total")
     private Integer total;

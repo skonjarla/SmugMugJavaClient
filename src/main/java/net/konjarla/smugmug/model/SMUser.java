@@ -13,7 +13,7 @@ import lombok.extern.jackson.Jacksonized;
 @ToString
 @Jacksonized
 @JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class SMUser {
     @JsonProperty("NickName")
     private String nickName;
@@ -39,7 +39,7 @@ public class SMUser {
     @Builder
     @Jacksonized
     @JsonIgnoreProperties(ignoreUnknown = true)
-    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     public static class SMUserURIs {
         @JsonProperty("BioImage")
         private SMUri bioImage;

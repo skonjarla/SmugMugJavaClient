@@ -15,7 +15,7 @@ import java.util.List;
 @ToString
 @Jacksonized
 @JsonIgnoreProperties(ignoreUnknown = true)
-@JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
 public class SMKeyWords {
     @JsonProperty("KeywordArray")
     private List<String> keywords;
