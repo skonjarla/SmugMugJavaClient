@@ -18,6 +18,5 @@ test-output
 .*.swp
 .*.swo
 dependency-reduced-pom.xml
-.pfpt-restest
 output
 src/main/java/net/konjarla/smugmug/App.java

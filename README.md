@@ -17,6 +17,16 @@ $ mvn clean install
 ```
 * Must have Java 8+
 * Must have a SmugMug account and API key and Access token and it's corresponding secret
+* Create jar file and use it locally using systemPath in pom.xml
+```xml
+        <dependency>
+            <groupId>net.konjarla.smugmug</groupId>
+            <artifactId>smugmugclient</artifactId>
+            <scope>system</scope>
+            <version>1.0-SNAPSHOT</version>
+            <systemPath>LOCAL_PATH_TO_JAR_FILE</systemPath>
+        </dependency>
+```
 
 ### How do I use it? ###
 

@@ -52,7 +52,7 @@ public class Albums {
                     .execute();
             return smAlbumResponse.getAlbum();
         } catch (Exception e) {
-            throw new RuntimeException(e.getCause());
+            throw new RuntimeException(e);
         }
     }
 
@@ -96,7 +96,7 @@ public class Albums {
                     .create(client, API_CONFIG.requestVerb, path, SMBaseResponse.class)
                     .execute();
         } catch (Exception e) {
-            throw new RuntimeException(e.getCause());
+            throw new RuntimeException(e);
         }
     }
 
@@ -133,7 +133,7 @@ public class Albums {
             }
             return result;
         } catch (Exception e) {
-            throw new RuntimeException(e.getCause());
+            throw new RuntimeException(e);
         }
     }
 
@@ -180,7 +180,7 @@ public class Albums {
                     .execute();
             return smAlbumResponse.getAlbum();
         } catch (Exception e) {
-            throw new RuntimeException(e.getCause());
+            throw new RuntimeException(e);
         }
     }
 
@@ -208,7 +208,7 @@ public class Albums {
             String path = "/api/v2/node/" + folderId + "!children";
             return addAlbumByUri(client, path, album);
         } catch (Exception e) {
-            throw new RuntimeException(e.getCause());
+            throw new RuntimeException(e);
         }
     }
 
@@ -269,7 +269,7 @@ public class Albums {
             return smNodeResponse.getNode();
 
         } catch (Exception e) {
-            throw new RuntimeException(e.getCause());
+            throw new RuntimeException(e);
         }
     }
 }
